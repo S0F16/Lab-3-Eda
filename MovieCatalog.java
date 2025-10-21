@@ -354,12 +354,12 @@ private void selectionSort(Comparator<Movie> Comp) {
         }
 
 private void radixSort (ToIntFunction<Movie> keyExtractor){
-        // Extraer claves y encontrar el máximo
+        //extraer claves y encontrar el maximo
         int n = movies.size();
         int[] keys = new int[n];
         int max = Integer.MIN_VALUE;
 
-        // Extraer claves y validar que no sean negativas
+        //extraer claves y validar que no sean negativas
         for (int i = 0; i < n; i++) {
             int key = keyExtractor.applyAsInt(movies.get(i));
             if (key < 0) {
@@ -369,7 +369,7 @@ private void radixSort (ToIntFunction<Movie> keyExtractor){
             if (key > max) max = key;
         }
 
-        // Aplicar Radix Sort por dígitos
+        //aplicar RadixSort por digitos
         for (int exp = 1; max / exp > 0; exp *= 10) {
             countingSortListByDigit(keyExtractor,keys, exp, n);
         }
@@ -422,3 +422,4 @@ private int partition(int bj, int alt, Comparator<Movie> Comp) {
             return i + 1;
         }
 }
+
